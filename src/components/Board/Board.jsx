@@ -7,12 +7,12 @@ function Board({ tasks: initialTasks = [] }) {
   //adding state for tasks
   const [tasks, setTasks] = useState(initialTasks);
 
-  const addTask = (title, description) => {
+  const addTask = (title, description, status) => {
     const newTask = {
       id: crypto.randomUUID(),
       title,
       description,
-      status: 'todo',
+      status,
     };
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };

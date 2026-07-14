@@ -1,3 +1,8 @@
+.formContainer {
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+}
+
 .form {
   background: #ffffff;
   padding: 1rem;
@@ -6,8 +11,6 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  max-width: 800px;
-  margin: 0 auto 1.5rem auto;
 }
 
 .input {
@@ -17,6 +20,15 @@
   border-radius: 4px;
 }
 
+.select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #ffffff;
+  cursor: pointer;
+  color: #333;
+}
+
 .submitBtn {
   background: #0052cc;
   color: white;
@@ -24,4 +36,16 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.submitBtn:hover {
+  background: #0076ff;
+}
+
+.error {
+  color: #de350b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 500;
 }
