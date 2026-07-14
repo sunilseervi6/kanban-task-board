@@ -1,0 +1,44 @@
+.card {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #4a90e2; /* visual indicator color track */
+}
+
+.taskTitle {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem 0;
+  color: #172b4d;
+}
+
+.taskDescription {
+  font-size: 0.85rem;
+  color: #5e6c84;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.btn {
+  background: #f4f5f7;
+  border: none;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #42526e;
+}
+
+.btn:hover {
+  background: #ebecf0;
+}
+
+.btnDelete {
+  color: #de350b;
+}
