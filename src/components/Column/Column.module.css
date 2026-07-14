@@ -1,25 +1,29 @@
 .column {
-  background-color: #f4f5f7;
+  background-color: var(--color-column-bg);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12);
   min-height: 500px;
+  transition: background-color 0.3s ease;
 }
 
 .title {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #333;
+  color: var(--color-text);
   display: flex;
   justify-content: space-between;
+  transition: color 0.3s ease;
 }
 
 .count {
-  background: #e2e4e6;
+  background: var(--color-border);
   border-radius: 12px;
   padding: 2px 8px;
   font-size: 0.8rem;
+  color: var(--color-text-muted);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .list {

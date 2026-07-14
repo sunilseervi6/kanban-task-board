@@ -1,22 +1,25 @@
 .card {
-  background: #ffffff;
+  background: var(--color-surface);
   border-radius: 6px;
   padding: 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   border-left: 4px solid #4a90e2; /* visual indicator color track */
+  transition: background-color 0.3s ease;
 }
 
 .taskTitle {
   font-size: 0.95rem;
   margin: 0 0 0.5rem 0;
-  color: #172b4d;
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 .taskDescription {
   font-size: 0.85rem;
-  color: #5e6c84;
+  color: var(--color-text-muted);
   margin: 0 0 1rem 0;
   line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
 .actions {
@@ -26,17 +29,23 @@
 }
 
 .btn {
-  background: #f4f5f7;
+  background: var(--color-bg);
   border: none;
   padding: 4px 8px;
   font-size: 0.75rem;
   border-radius: 3px;
   cursor: pointer;
-  color: #42526e;
+  color: var(--color-text-muted);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-  background: #ebecf0;
+  background: var(--color-border);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .btnDelete {
@@ -44,7 +53,7 @@
 }
 
 .editForm {
-  background: #ffffff;
+  background: var(--color-surface);
   border-radius: 6px;
   padding: 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -52,25 +61,30 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
 .editInput {
   font-size: 0.95rem;
   padding: 0.35rem 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: 4px;
-  color: #172b4d;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .editTextarea {
   font-size: 0.85rem;
   padding: 0.35rem 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border);
   border-radius: 4px;
-  color: #5e6c84;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
   resize: vertical;
   min-height: 50px;
   font-family: inherit;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .editActions {
