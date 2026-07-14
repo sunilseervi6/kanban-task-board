@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { COLUMNS } from '../../data/columns';
 import styles from './TaskForm.module.css';
 
 function TaskForm({ onAddTask }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [status, setStatus] = useState('todo');
+  const [column, setColumn] = useState(COLUMNS[0].id);
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -14,10 +15,10 @@ function TaskForm({ onAddTask }) {
       return;
     }
     setError('');
-    onAddTask(title.trim(), description.trim(), status);
+    onAddTask(title.trim(), description.trim(), column);
     setTitle('');
     setDescription('');
-    setStatus('todo');
+    setColumn(COLUMNS[0].id);
   };
 
   const handleTitleChange = (e) => {
@@ -46,12 +47,14 @@ function TaskForm({ onAddTask }) {
         />
         <select
           className={styles.select}
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
+          value={column}
+          onChange={(e) => setColumn(e.target.value)}
         >
-          <option value="todo">To Do</option>
-          <option value="in-progress">In Progress</option>
-          <option value="done">Done</option>
+          {COLUMNS.map((col) => (
+            <option key={col.id} value={col.id}>
+              {col.title}
+            </option>
+          ))}
         </select>
         <button type="submit" className={styles.submitBtn}>
           Add Task

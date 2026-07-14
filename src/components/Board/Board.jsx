@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import Column from '../Column/Column';
 import TaskForm from '../TaskForm/TaskForm';
+import { COLUMNS } from '../../data/columns';
 import styles from './Board.module.css';
 
 function Board({ tasks: initialTasks = [] }) {
   //adding state for tasks
   const [tasks, setTasks] = useState(initialTasks);
 
-  const addTask = (title, description, status) => {
+  const addTask = (title, description, column) => {
     const newTask = {
       id: crypto.randomUUID(),
       title,
       description,
-      status,
+      column,
     };
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };
@@ -21,9 +22,14 @@ function Board({ tasks: initialTasks = [] }) {
     <div>
       <TaskForm onAddTask={addTask} />
       <div className={styles.board}>
-        <Column title="To Do" status="todo" tasks={tasks} />
-        <Column title="In Progress" status="in-progress" tasks={tasks} />
-        <Column title="Done" status="done" tasks={tasks} />
+        {COLUMNS.map((col) => (
+          <Column
+            key={col.id}
+            title={col.title}
+            column={col.id}
+            tasks={tasks.filter((task) => task.column === col.id)}
+          />
+        ))}
       </div>
     </div>
   );

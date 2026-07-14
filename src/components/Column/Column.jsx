@@ -1,17 +1,14 @@
 import Card from '../Card/Card';
 import styles from './Column.module.css';
 
-function Column({ title, status, tasks }) {
-  // Pure functional transformation: filtering specific elements
-  const filteredTasks = tasks.filter(task => task.status === status);
-
+function Column({ title, column, tasks }) {
   return (
     <div className={styles.column}>
       <h2 className={styles.title}>
-        {title} <span className={styles.count}>({filteredTasks.length})</span>
+        {title} <span className={styles.count}>({tasks.length})</span>
       </h2>
       <div className={styles.list}>
-        {filteredTasks.map(task => (
+        {tasks.map((task) => (
           // Fulfilling: List rendering with stable explicit key strings
           <Card key={task.id} task={task} />
         ))}
