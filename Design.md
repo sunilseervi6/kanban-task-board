@@ -2,11 +2,11 @@
 
 ## Component Tree
 
-```
+```text
 App
+├── Header
 └── Board
-    ├── Header
-    ├── AddCardForm
+    ├── TaskForm (AddCardForm)
     └── Column (looped over distinct column values)
         └── Card (looped over cards filtered by column)
             └── EditCardForm (rendered conditionally when Card is in edit mode)
