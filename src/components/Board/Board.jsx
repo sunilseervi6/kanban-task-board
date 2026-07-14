@@ -18,6 +18,16 @@ function Board({ tasks: initialTasks = [] }) {
     setTasks((prevTasks) => [...prevTasks, newTask]);
   };
 
+  const editTask = (id, updates) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((t) => (t.id === id ? { ...t, ...updates } : t))
+    );
+  };
+
+  const deleteTask = (id) => {
+    setTasks((prevTasks) => prevTasks.filter((t) => t.id !== id));
+  };
+
   return (
     <div>
       <TaskForm onAddTask={addTask} />
@@ -28,6 +38,8 @@ function Board({ tasks: initialTasks = [] }) {
             title={col.title}
             column={col.id}
             tasks={tasks.filter((task) => task.column === col.id)}
+            onEditTask={editTask}
+            onDeleteTask={deleteTask}
           />
         ))}
       </div>

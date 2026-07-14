@@ -42,3 +42,48 @@
 .btnDelete {
   color: #de350b;
 }
+
+.editForm {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #f2994a; /* edit border color */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.editInput {
+  font-size: 0.95rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #172b4d;
+}
+
+.editTextarea {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #5e6c84;
+  resize: vertical;
+  min-height: 50px;
+  font-family: inherit;
+}
+
+.editActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.btnSave {
+  background: #0052cc;
+  color: white;
+}
+
+.btnSave:hover {
+  background: #0076ff;
+}
