@@ -3,7 +3,7 @@ import Column from '../Column/Column';
 import TaskForm from '../TaskForm/TaskForm';
 import styles from './Board.module.css';
 
-function Board({ tasks: initialTasks }) {
+function Board({ tasks: initialTasks = [] }) {
   //adding state for tasks
   const [tasks, setTasks] = useState(initialTasks);
 
