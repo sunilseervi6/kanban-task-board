@@ -28,6 +28,25 @@ function Board({ tasks: initialTasks = [] }) {
     setTasks((prevTasks) => prevTasks.filter((t) => t.id !== id));
   };
 
+  const moveTask = (id, direction) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((t) => {
+        if (t.id !== id) return t;
+        const currentIndex = COLUMNS.findIndex((col) => col.id === t.column);
+        if (currentIndex === -1) return t;
+
+        let nextIndex = currentIndex;
+        if (direction === 'prev' && currentIndex > 0) {
+          nextIndex = currentIndex - 1;
+        } else if (direction === 'next' && currentIndex < COLUMNS.length - 1) {
+          nextIndex = currentIndex + 1;
+        }
+
+        return { ...t, column: COLUMNS[nextIndex].id };
+      })
+    );
+  };
+
   return (
     <div>
       <TaskForm onAddTask={addTask} />
@@ -40,6 +59,7 @@ function Board({ tasks: initialTasks = [] }) {
             tasks={tasks.filter((task) => task.column === col.id)}
             onEditTask={editTask}
             onDeleteTask={deleteTask}
+            onMoveTask={moveTask}
           />
         ))}
       </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './Card.module.css';
 
-function Card({ task, onEdit, onDelete }) {
+function Card({ task, onEdit, onDelete, onMove, isFirst, isLast }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(task.title);
   const [editDescription, setEditDescription] = useState(task.description);
@@ -53,7 +53,13 @@ function Card({ task, onEdit, onDelete }) {
       <h3 className={styles.taskTitle}>{task.title}</h3>
       <p className={styles.taskDescription}>{task.description}</p>
       <div className={styles.actions}>
-        <button className={styles.btn}>← Move</button>
+        <button
+          className={styles.btn}
+          onClick={() => onMove(task.id, 'prev')}
+          disabled={isFirst}
+        >
+          ← Move
+        </button>
         <button className={styles.btn} onClick={() => setIsEditing(true)}>
           Edit
         </button>
@@ -63,7 +69,13 @@ function Card({ task, onEdit, onDelete }) {
         >
           Delete
         </button>
-        <button className={styles.btn}>Move →</button>
+        <button
+          className={styles.btn}
+          onClick={() => onMove(task.id, 'next')}
+          disabled={isLast}
+        >
+          Move →
+        </button>
       </div>
     </div>
   );
