@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import Column from '../Column/Column';
 import TaskForm from '../TaskForm/TaskForm';
 import { COLUMNS } from '../../data/columns';
+import useLocalStorage from '../../hooks/useLocalStorage';
 import styles from './Board.module.css';
 
 function Board({ tasks: initialTasks = [] }) {
-  //adding state for tasks
-  const [tasks, setTasks] = useState(initialTasks);
+  //adding state for tasks using localStorage hook
+  const [tasks, setTasks] = useLocalStorage('kanban-tasks', initialTasks);
 
   const addTask = (title, description, column) => {
     const newTask = {
